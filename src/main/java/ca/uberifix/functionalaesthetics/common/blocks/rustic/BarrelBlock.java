@@ -7,13 +7,8 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.eventhandler.ListenerList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -23,10 +18,11 @@ import java.util.List;
  * Created by uberifix
  */
 public class BarrelBlock extends BlockRustic {
-    public static final PropertyEnum<BlockVariants.EnumWoodVariant> PROPERTYVARIANT = PropertyEnum.<BlockVariants.EnumWoodVariant>create("variant", BlockVariants.EnumWoodVariant.class);
+    public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.<BlockVariants.EnumWoodVariant>create("variant", BlockVariants.EnumWoodVariant.class);
 
     public BarrelBlock() {
         super("barrel_block", Material.WOOD);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.OAK));
         this.registerBlock();
         this.initModelVariant(0, "variant=oak");
         this.initModelVariant(1, "variant=spruce");
@@ -45,40 +41,27 @@ public class BarrelBlock extends BlockRustic {
         return false;
     }
 
-    @Override
+    public int damageDropped(IBlockState state) {
+        return ((BlockVariants.EnumWoodVariant)state.getValue(VARIANT)).getMetadata();
+    }
+
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list)
-    {
-        for (BlockVariants.EnumWoodVariant blockvariants$enumtype : BlockVariants.EnumWoodVariant.values())
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
+        for (BlockVariants.EnumWoodVariant blockplanks$enumtype : BlockVariants.EnumWoodVariant.values())
         {
-            list.add(new ItemStack(itemIn, 1, blockvariants$enumtype.getMetadata()));
+            list.add(new ItemStack(itemIn, 1, blockplanks$enumtype.getMetadata()));
         }
     }
-    @Override
-    public int damageDropped(IBlockState state)
-    {
-        return ((BlockVariants.EnumWoodVariant)state.getValue(PROPERTYVARIANT)).getMetadata();
-    }
-    @Override
+
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(PROPERTYVARIANT, BlockVariants.EnumWoodVariant.byMetadata(meta));
+        return this.getDefaultState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.byMetadata(meta));
     }
-    @Override
+
     public int getMetaFromState(IBlockState state) {
-        return ((BlockVariants.EnumWoodVariant)state.getValue(PROPERTYVARIANT)).getMetadata();
+        return ((BlockVariants.EnumWoodVariant)state.getValue(VARIANT)).getMetadata();
     }
 
-    @Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {PROPERTYVARIANT});
-    }
-
-    @Override
-    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing blockFaceClickedOn, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    {
-        BlockVariants.EnumWoodVariant colour = BlockVariants.EnumWoodVariant.byMetadata(meta);
-
-        return this.getDefaultState().withProperty(PROPERTYVARIANT, colour);
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[] {VARIANT});
     }
 }

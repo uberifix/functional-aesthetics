@@ -19,13 +19,9 @@ public class BlockVariants {
         private final String name;
         private final String unlocalizedName;
 
-        private EnumWoodVariant(int metaIn, String nameIn)
-        {
-            this(metaIn, nameIn, nameIn);
-        }
+        private EnumWoodVariant(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
 
-        private EnumWoodVariant(int metaIn, String nameIn, String unlocalizedNameIn)
-        {
+        private EnumWoodVariant(int metaIn, String nameIn, String unlocalizedNameIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;
@@ -41,63 +37,7 @@ public class BlockVariants {
             return this.name;
         }
 
-        public static BlockVariants.EnumWoodVariant byMetadata(int meta)
-        {
-            if (meta < 0 || meta >= META_LOOKUP.length)
-            {
-                meta = 0;
-            }
-
-            return META_LOOKUP[meta];
-        }
-
-        public String getName() { return this.name; }
-
-        public String getUnlocalizedName() { return this.unlocalizedName; }
-
-        static
-        {
-            for (BlockVariants.EnumWoodVariant blockvariant$enumtype : values())
-            {
-                META_LOOKUP[blockvariant$enumtype.getMetadata()] = blockvariant$enumtype;
-            }
-        }
-    }
-    public static enum EnumStoneVariant implements IStringSerializable {
-        STONE(0, "stone"),
-        DIORITE(1, "diorite"),
-        ANDESITE(2, "andesite"),
-        GRANITE(3, "granite");
-
-        private static final EnumStoneVariant[] META_LOOKUP = new EnumStoneVariant[values().length];
-        private final int meta;
-        private final String name;
-        private final String unlocalizedName;
-
-        private EnumStoneVariant(int metaIn, String nameIn)
-        {
-            this(metaIn, nameIn, nameIn);
-        }
-
-        private EnumStoneVariant(int metaIn, String nameIn, String unlocalizedNameIn)
-        {
-            this.meta = metaIn;
-            this.name = nameIn;
-            this.unlocalizedName = unlocalizedNameIn;
-        }
-
-        public int getMetadata()
-        {
-            return this.meta;
-        }
-
-        public String toString()
-        {
-            return this.name;
-        }
-
-        public static EnumStoneVariant byMetadata(int meta)
-        {
+        public static BlockVariants.EnumWoodVariant byMetadata(int meta) {
             if (meta < 0 || meta >= META_LOOKUP.length)
             {
                 meta = 0;
@@ -116,11 +56,10 @@ public class BlockVariants {
             return this.unlocalizedName;
         }
 
-        static
-        {
-            for (EnumStoneVariant blockvariant$enumtype : values())
+        static {
+            for (BlockVariants.EnumWoodVariant blockplanks$enumtype : values())
             {
-                META_LOOKUP[blockvariant$enumtype.getMetadata()] = blockvariant$enumtype;
+                META_LOOKUP[blockplanks$enumtype.getMetadata()] = blockplanks$enumtype;
             }
         }
     }

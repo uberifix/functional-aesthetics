@@ -31,6 +31,7 @@ public class BlockCommon extends Block {
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,new ModelResourceLocation(getRegistryName(), "inventory"));
     }
+    @SideOnly(Side.CLIENT)
     public void initModelVariant(int meta , String variant) {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), meta,new ModelResourceLocation(getRegistryName(), variant));
     }
