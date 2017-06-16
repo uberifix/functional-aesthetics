@@ -1,0 +1,58 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "functionalaesthetics:closed_barrel_model",
+    "textures": {
+      "ring": "blocks/anvil_base",
+      "barrel": "blocks/log_oak",
+      "lid": "blocks/log_oak_top",
+      "particle": "blocks/log_oak"
+    }
+  },
+  "variants": {
+    "variant": {
+      "oak": {
+        "textures": {
+          "barrel": "blocks/log_oak",
+          "lid": "blocks/log_oak_top",
+          "particle": "blocks/log_oak"
+        }
+      },
+      "spruce": {
+        "textures": {
+          "barrel": "blocks/log_spruce",
+          "lid": "blocks/log_spruce_top",
+          "particle": "blocks/log_spruce"
+        }
+      },
+      "birch": {
+        "textures": {
+          "barrel": "blocks/log_birch",
+          "lid": "blocks/log_birch_top",
+          "particle": "blocks/log_birch"
+        }
+      },
+      "jungle": {
+        "textures": {
+          "barrel": "blocks/log_jungle",
+          "lid": "blocks/log_jungle_top",
+          "particle": "blocks/log_jungle"
+        }
+      },
+      "acacia": {
+        "textures": {
+          "barrel": "blocks/log_acacia",
+          "lid": "blocks/log_acacia_top",
+          "particle": "blocks/log_acacia"
+        }
+      },
+      "dark_oak": {
+        "textures": {
+          "barrel": "blocks/log_dark_oak",
+          "lid": "minecraft:blocks/log_dark_oak_top",
+          "particle": "blocks/log_dark_oak"
+        }
+      }
+    }
+  }
+}
