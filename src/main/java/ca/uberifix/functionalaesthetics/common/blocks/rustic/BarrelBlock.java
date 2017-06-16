@@ -1,6 +1,7 @@
 package ca.uberifix.functionalaesthetics.common.blocks.rustic;
 
 import ca.uberifix.functionalaesthetics.common.blocks.BlockVariants;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -18,11 +19,12 @@ import java.util.List;
  * Created by uberifix
  */
 public class BarrelBlock extends BlockRustic {
-    public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.<BlockVariants.EnumWoodVariant>create("variant", BlockVariants.EnumWoodVariant.class);
+    //public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariant.class);
+    public static final PropertyEnum<BlockPlanks.EnumType> VARIANT = PropertyEnum.create("variant", BlockPlanks.EnumType.class);
 
     public BarrelBlock() {
         super("barrel_block", Material.WOOD);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.OAK));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockPlanks.EnumType.OAK));
         this.registerBlock();
         this.initModelVariant(0, "variant=oak");
         this.initModelVariant(1, "variant=spruce");
@@ -42,7 +44,7 @@ public class BarrelBlock extends BlockRustic {
     }
 
     public int damageDropped(IBlockState state) {
-        return ((BlockVariants.EnumWoodVariant)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     @SideOnly(Side.CLIENT)
@@ -54,14 +56,14 @@ public class BarrelBlock extends BlockRustic {
     }
 
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.byMetadata(meta));
+        return this.getDefaultState().withProperty(VARIANT, BlockPlanks.EnumType.byMetadata(meta));
     }
 
     public int getMetaFromState(IBlockState state) {
-        return ((BlockVariants.EnumWoodVariant)state.getValue(VARIANT)).getMetadata();
+        return state.getValue(VARIANT).getMetadata();
     }
 
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] {VARIANT});
+        return new BlockStateContainer(this, VARIANT);
     }
 }
