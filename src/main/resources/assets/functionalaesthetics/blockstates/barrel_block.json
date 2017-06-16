@@ -48,9 +48,9 @@
       },
       "dark_oak": {
         "textures": {
-          "barrel": "blocks/log_dark_oak",
-          "lid": "minecraft:blocks/log_dark_oak_top",
-          "particle": "blocks/log_dark_oak"
+          "barrel": "blocks/log_big_oak",
+          "lid": "minecraft:blocks/log_big_oak_top",
+          "particle": "blocks/log_big_oak"
         }
       }
     }

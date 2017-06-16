@@ -28,12 +28,12 @@ public class BarrelBlock extends BlockRustic {
     public BarrelBlock() {
         super("barrel_block", Material.WOOD);
         this.registerBlock();
-        this.initModelVariant(0, "oak");
-        this.initModelVariant(1, "spruce");
-        this.initModelVariant(2, "birch");
-        this.initModelVariant(3, "jungle");
-        this.initModelVariant(4, "acacia");
-        this.initModelVariant(5, "dark_oak");
+        this.initModelVariant(0, "variant=oak");
+        this.initModelVariant(1, "variant=spruce");
+        this.initModelVariant(2, "variant=birch");
+        this.initModelVariant(3, "variant=jungle");
+        this.initModelVariant(4, "variant=acacia");
+        this.initModelVariant(5, "variant=dark_oak");
     }
 
     @Override
