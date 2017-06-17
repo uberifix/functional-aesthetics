@@ -1,10 +1,40 @@
 ##  Creative Tab
+# Rustic Tab
 itemGroup.tabFunctionalAestheticsRustic=Functional Aesthetics - Rustic
 
 ##  Rustic Module
+# Barrels
 tile.functionalaesthetics.barrel_block.oak.name=Wooden Oak Barrel
 tile.functionalaesthetics.barrel_block.spruce.name=Wooden Spruce Barrel
 tile.functionalaesthetics.barrel_block.birch.name=Wooden Birch Barrel
 tile.functionalaesthetics.barrel_block.jungle.name=Wooden Jungle Barrel
 tile.functionalaesthetics.barrel_block.acacia.name=Wooden Acacia Barrel
 tile.functionalaesthetics.barrel_block.dark_oak.name=Wooden Dark Oak Barrel
+# Stone Campfires
+tile.functionalaesthetics.stone_campfire_block_1_stone_oak.name=Oak Campfire in Stone Pit
+tile.functionalaesthetics.stone_campfire_block_1_stone_spruce.name=Spruce Campfire in Stone Pit
+tile.functionalaesthetics.stone_campfire_block_1_stone_birch.name=Birch Campfire in Stone Pit
+tile.functionalaesthetics.stone_campfire_block_1_stone_jungle.name=Jungle Campfire in Stone Pit
+tile.functionalaesthetics.stone_campfire_block_2_stone_acacia.name=Acacia Campfire in Stone Pit
+tile.functionalaesthetics.stone_campfire_block_2_stone_dark_oak.name=Dark Oak Campfire in Stone Pit
+#Diorite Campfires
+tile.functionalaesthetics.stone_campfire_block_1_diorite_oak.name=Oak Campfire in Diorite Pit
+tile.functionalaesthetics.stone_campfire_block_1_diorite_spruce.name=Spruce Campfire in Diorite Pit
+tile.functionalaesthetics.stone_campfire_block_1_diorite_birch.name=Birch Campfire in Diorite Pit
+tile.functionalaesthetics.stone_campfire_block_1_diorite_jungle.name=Jungle Campfire in Diorite Pit
+tile.functionalaesthetics.stone_campfire_block_2_diorite_acacia.name=Acacia Campfire in Diorite Pit
+tile.functionalaesthetics.stone_campfire_block_2_diorite_dark_oak.name=Dark Oak Campfire in Diorite Pit
+#Andesite Campfires
+tile.functionalaesthetics.stone_campfire_block_1_andesite_oak.name=Oak Campfire in Andesite Pit
+tile.functionalaesthetics.stone_campfire_block_1_andesite_spruce.name=Spruce Campfire in Andesite Pit
+tile.functionalaesthetics.stone_campfire_block_1_andesite_birch.name=Birch Campfire in Andesite Pit
+tile.functionalaesthetics.stone_campfire_block_1_andesite_jungle.name=Jungle Campfire in Andesite Pit
+tile.functionalaesthetics.stone_campfire_block_2_andesite_acacia.name=Acacia Campfire in Andesite Pit
+tile.functionalaesthetics.stone_campfire_block_2_andesite_dark_oak.name=Dark Oak Campfire in Andesite Pit
+#Granite Campfires
+tile.functionalaesthetics.stone_campfire_block_1_granite_oak.name=Oak Campfire in Granite Pit
+tile.functionalaesthetics.stone_campfire_block_1_granite_spruce.name=Spruce Campfire in Granite Pit
+tile.functionalaesthetics.stone_campfire_block_1_granite_birch.name=Birch Campfire in Granite Pit
+tile.functionalaesthetics.stone_campfire_block_1_granite_jungle.name=Jungle Campfire in Granite Pit
+tile.functionalaesthetics.stone_campfire_block_2_granite_acacia.name=Acacia Campfire in Granite Pit
+tile.functionalaesthetics.stone_campfire_block_2_granite_dark_oak.name=Dark Oak Campfire in Granite Pit

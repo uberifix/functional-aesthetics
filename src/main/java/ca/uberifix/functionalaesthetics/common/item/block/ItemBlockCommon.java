@@ -29,8 +29,10 @@ public class ItemBlockCommon extends ItemBlock {
     }
 
     @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0,new ModelResourceLocation(getRegistryName(), "inventory"));
+    public void initModel(int metatypes) {
+        for (int i = 0; i <= metatypes; i++) {
+            ModelLoader.setCustomModelResourceLocation(this, i,new ModelResourceLocation(getRegistryName(), "inventory"));
+        }
     }
     @SideOnly(Side.CLIENT)
     public void initModelVariant(int meta , String variant) {

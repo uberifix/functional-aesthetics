@@ -17,11 +17,11 @@ import java.util.List;
  * Created by uberifix
  */
 public class BarrelBlock extends BlockRustic {
-    public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariant.class);
+    public static final PropertyEnum<BlockVariants.EnumWoodVariantAll> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariantAll.class);
 
     public BarrelBlock() {
         super("barrel_block", Material.WOOD);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.OAK));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariantAll.OAK));
         this.registerBlock();
     }
 
@@ -34,20 +34,17 @@ public class BarrelBlock extends BlockRustic {
         return false;
     }
 
-    public int damageDropped(IBlockState state) {
-        return state.getValue(VARIANT).getMetadata();
-    }
-
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-        for (BlockVariants.EnumWoodVariant blockplanks$enumtype : BlockVariants.EnumWoodVariant.values())
-        {
-            list.add(new ItemStack(itemIn, 1, blockplanks$enumtype.getMetadata()));
+        for (int i = 0; i <= 5; i++) {
+            list.add(new ItemStack(itemIn, 1, i));
         }
     }
 
+    public int damageDropped(IBlockState state) { return state.getValue(VARIANT).getMetadata(); }
+
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.byMetadata(meta));
+        return this.getDefaultState().withProperty(VARIANT, BlockVariants.EnumWoodVariantAll.byMetadata(meta));
     }
 
     public int getMetaFromState(IBlockState state) {

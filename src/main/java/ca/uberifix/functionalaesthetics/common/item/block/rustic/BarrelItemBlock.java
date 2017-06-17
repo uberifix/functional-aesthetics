@@ -13,17 +13,15 @@ public class BarrelItemBlock extends ItemBlockCommon{
     public BarrelItemBlock(Block block) {
         super(block, ModBlocks.barrelBlock.getRegistryName(), true);
         this.registerItemBlock();
-        this.initModelVariant(0, "variant=oak");
-        this.initModelVariant(1, "variant=spruce");
-        this.initModelVariant(2, "variant=birch");
-        this.initModelVariant(3, "variant=jungle");
-        this.initModelVariant(4, "variant=acacia");
-        this.initModelVariant(5, "variant=dark_oak");
+        String[] WoodVariants = {"oak", "spruce", "birch", "jungle", "acacia", "dark_oak"};
+        for(int i=0; i < WoodVariants.length; i++) {
+            this.initModelVariant(i, "variant="+WoodVariants[i]);
+        }
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        BlockVariants.EnumWoodVariant variant = BlockVariants.EnumWoodVariant.byMetadata(stack.getMetadata());
+        BlockVariants.EnumWoodVariantAll variant = BlockVariants.EnumWoodVariantAll.byMetadata(stack.getMetadata());
         return super.getUnlocalizedName() + "." + variant.toString();
     }
 }
