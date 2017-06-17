@@ -3,7 +3,7 @@
   "modid": "functionalaesthetics",
   "name": "Functional Aesthetics",
   "description": "A mod that adds cosmetic blocks that are resource pack dependent. This allows the mod to fit in well with nearly any resource pack.",
-  "version": "1.10.2-0.0.1-beta",
+  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "mods.uberifix.ca",
   "updateUrl": "",

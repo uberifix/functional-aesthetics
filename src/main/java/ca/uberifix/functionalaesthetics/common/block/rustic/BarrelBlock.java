@@ -1,9 +1,7 @@
-package ca.uberifix.functionalaesthetics.common.blocks.rustic;
+package ca.uberifix.functionalaesthetics.common.block.rustic;
 
-import ca.uberifix.functionalaesthetics.common.blocks.BlockVariants;
-import net.minecraft.block.BlockPlanks;
+import ca.uberifix.functionalaesthetics.common.block.BlockVariants;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -19,19 +17,12 @@ import java.util.List;
  * Created by uberifix
  */
 public class BarrelBlock extends BlockRustic {
-    //public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariant.class);
-    public static final PropertyEnum<BlockPlanks.EnumType> VARIANT = PropertyEnum.create("variant", BlockPlanks.EnumType.class);
+    public static final PropertyEnum<BlockVariants.EnumWoodVariant> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariant.class);
 
     public BarrelBlock() {
         super("barrel_block", Material.WOOD);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockPlanks.EnumType.OAK));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.OAK));
         this.registerBlock();
-        this.initModelVariant(0, "variant=oak");
-        this.initModelVariant(1, "variant=spruce");
-        this.initModelVariant(2, "variant=birch");
-        this.initModelVariant(3, "variant=jungle");
-        this.initModelVariant(4, "variant=acacia");
-        this.initModelVariant(5, "variant=dark_oak");
     }
 
     @Override
@@ -56,7 +47,7 @@ public class BarrelBlock extends BlockRustic {
     }
 
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(VARIANT, BlockPlanks.EnumType.byMetadata(meta));
+        return this.getDefaultState().withProperty(VARIANT, BlockVariants.EnumWoodVariant.byMetadata(meta));
     }
 
     public int getMetaFromState(IBlockState state) {

@@ -1,5 +1,10 @@
-#Creative Tab Names
+##  Creative Tab
 itemGroup.tabFunctionalAestheticsRustic=Functional Aesthetics - Rustic
-#Rustic Module Names
-tile.barrel_block.name=Wooden Barrel
-tile.campfire_block.name=Campfire
+
+##  Rustic Module
+tile.functionalaesthetics.barrel_block.oak.name=Wooden Oak Barrel
+tile.functionalaesthetics.barrel_block.spruce.name=Wooden Spruce Barrel
+tile.functionalaesthetics.barrel_block.birch.name=Wooden Birch Barrel
+tile.functionalaesthetics.barrel_block.jungle.name=Wooden Jungle Barrel
+tile.functionalaesthetics.barrel_block.acacia.name=Wooden Acacia Barrel
+tile.functionalaesthetics.barrel_block.dark_oak.name=Wooden Dark Oak Barrel

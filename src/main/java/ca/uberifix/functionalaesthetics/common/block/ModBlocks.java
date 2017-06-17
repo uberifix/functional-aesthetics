@@ -1,7 +1,7 @@
-package ca.uberifix.functionalaesthetics.common.blocks;
+package ca.uberifix.functionalaesthetics.common.block;
 
-import ca.uberifix.functionalaesthetics.common.blocks.rustic.BarrelBlock;
-import ca.uberifix.functionalaesthetics.common.blocks.rustic.CampfireBlock;
+import ca.uberifix.functionalaesthetics.common.block.rustic.BarrelBlock;
+import ca.uberifix.functionalaesthetics.common.block.rustic.CampfireBlock;
 
 import static ca.uberifix.functionalaesthetics.common.config.Config.RUSTIC_MODULE_ENABLED;
 

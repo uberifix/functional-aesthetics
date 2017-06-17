@@ -1,4 +1,4 @@
-package ca.uberifix.functionalaesthetics.common.blocks.rustic;
+package ca.uberifix.functionalaesthetics.common.block.rustic;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,7 +22,7 @@ public class CampfireBlock extends BlockRustic {
 
     public CampfireBlock() {
         super("campfire_block", Material.WOOD);
-        this.init();
+        this.registerBlock();
         this.setLightLevel(1.0F);
         translucent = true;
     }

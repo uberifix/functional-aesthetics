@@ -1,7 +1,8 @@
 package ca.uberifix.functionalaesthetics.proxy;
 
-import ca.uberifix.functionalaesthetics.common.blocks.ModBlocks;
+import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
 import ca.uberifix.functionalaesthetics.common.config.Config;
+import ca.uberifix.functionalaesthetics.common.item.block.ModItemBlocks;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -21,6 +22,7 @@ public class CommonProxy {
         Config.readConfig();
 
         ModBlocks.init();
+        ModItemBlocks.init();
     }
 
     public void init(FMLInitializationEvent event) {

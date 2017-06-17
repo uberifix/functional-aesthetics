@@ -1,4 +1,4 @@
-package ca.uberifix.functionalaesthetics.common.blocks;
+package ca.uberifix.functionalaesthetics.common.block;
 
 import net.minecraft.util.IStringSerializable;
 
