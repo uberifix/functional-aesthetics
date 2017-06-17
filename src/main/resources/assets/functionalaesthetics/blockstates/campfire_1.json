@@ -1,0 +1,44 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "functionalaesthetics:wood_campfire_model",
+    "textures": {
+      "wood": "blocks/log_oak",
+      "wood_side": "blocks/log_oak_top",
+      "fire": "blocks/fire_layer_0",
+      "fire_2": "blocks/fire_layer_1"
+    }
+  },
+  "variants": {
+    "wood_variant": {
+      "oak": {
+        "textures": {
+          "wood": "blocks/log_oak",
+          "wood_side": "blocks/log_oak_top",
+          "particle": "blocks/log_oak"
+        }
+      },
+      "spruce": {
+        "textures": {
+          "wood": "blocks/log_spruce",
+          "wood_side": "blocks/log_spruce_top",
+          "particle": "blocks/log_spruce"
+        }
+      },
+      "birch": {
+        "textures": {
+          "wood": "blocks/log_birch",
+          "wood_side": "blocks/log_birch_top",
+          "particle": "blocks/log_birch"
+        }
+      },
+      "jungle": {
+        "textures": {
+          "wood": "blocks/log_jungle",
+          "wood_side": "blocks/log_jungle_top",
+          "particle": "blocks/log_jungle"
+        }
+      }
+    }
+  }
+}
