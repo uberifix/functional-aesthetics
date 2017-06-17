@@ -20,7 +20,7 @@ public class BarrelBlock extends BlockRustic {
     public static final PropertyEnum<BlockVariants.EnumWoodVariantAll> VARIANT = PropertyEnum.create("variant", BlockVariants.EnumWoodVariantAll.class);
 
     public BarrelBlock() {
-        super("barrel_block", Material.WOOD);
+        super("barrel", Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, BlockVariants.EnumWoodVariantAll.OAK));
         this.registerBlock();
     }

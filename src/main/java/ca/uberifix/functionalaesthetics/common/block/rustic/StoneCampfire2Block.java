@@ -30,7 +30,7 @@ public class StoneCampfire2Block extends BlockRustic {
     private static final AxisAlignedBB CAMPFIRE_AABB = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.4D, 0.8D);
 
     public StoneCampfire2Block() {
-        super("stone_campfire_block_2", Material.WOOD);
+        super("stone_campfire_2", Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STONE_VARIANT, BlockVariants.EnumStoneVariant.STONE).withProperty(WOOD_VARIANT, BlockVariants.EnumWoodVariantNew.DARK_OAK));
         this.setLightLevel(1.0F);
         translucent = true;
