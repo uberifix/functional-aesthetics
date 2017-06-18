@@ -87,7 +87,7 @@ public class Campfire2Block extends BlockRustic {
     public void convertToStoneCampfire(World worldIn, EntityPlayer playerIn, BlockPos pos, int meta) {
         playerIn.getHeldItem(EnumHand.MAIN_HAND).stackSize -= 1;
         if (!worldIn.isRemote) {
-            worldIn.setBlockState(pos, ModBlocks.stoneCampfire1Block.getStateFromMeta(meta));
+            worldIn.setBlockState(pos, ModBlocks.stoneCampfire2Block.getStateFromMeta(meta));
         }
     }
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
