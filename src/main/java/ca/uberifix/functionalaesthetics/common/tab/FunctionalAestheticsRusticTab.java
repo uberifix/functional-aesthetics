@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 public class FunctionalAestheticsRusticTab extends CreativeTabs {
     public static final FunctionalAestheticsRusticTab INSTANCE = new FunctionalAestheticsRusticTab();
 
-    public FunctionalAestheticsRusticTab() { super("tabFunctionalAestheticsRustic");}
+    public FunctionalAestheticsRusticTab() { super("tab_functional_aesthetics_rustic");}
 
     @Override
     public Item getTabIconItem() {return Items.BOOK;}

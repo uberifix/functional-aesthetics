@@ -18,15 +18,16 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
     @Override
     public void update () {
         tick = (tick + 1) %20;
-        if (tick == 0 && !worldObj.isRemote) {
+        if (tick == 0 && !getWorld().isRemote) {
             double x = this.pos.getX(), y = this.pos.getY(), z = this.pos.getZ();
             AxisAlignedBB COOK_RADIUS_AABB = new AxisAlignedBB(x - 1, y, z - 1, x + 2, y + 1, z + 2);
-            List<EntityItem> entities = worldObj.getEntitiesWithinAABB(EntityItem.class, COOK_RADIUS_AABB);
+            List<EntityItem> entities = getWorld().getEntitiesWithinAABB(EntityItem.class, COOK_RADIUS_AABB);
             for (EntityItem item : entities) {
                 ItemStack cookedItem = FurnaceRecipes.instance().getSmeltingResult(item.getEntityItem());
+                cookedItem.stackSize = item.getEntityItem().stackSize;
                 if(cookedItem != null) {
                     if (cookedItem.getItem() instanceof ItemFood) {
-                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, new ItemStack(cookedItem.getItem())));
+                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, cookedItem.copy()));
                         item.setDead();
                     }
                 }
