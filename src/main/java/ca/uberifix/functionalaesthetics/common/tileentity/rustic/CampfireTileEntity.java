@@ -26,7 +26,7 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
                 ItemStack cookedItem = FurnaceRecipes.instance().getSmeltingResult(item.getEntityItem());
                 if(cookedItem != null) {
                     if (cookedItem.getItem() instanceof ItemFood) {
-                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, cookedItem));
+                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, new ItemStack(cookedItem.getItem())));
                         item.setDead();
                     }
                 }
