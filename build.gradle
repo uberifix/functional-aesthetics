@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
 
-version = "1.10.2-0.0.5-beta"
+version = "1.11.2-0.0.5-beta"
 group= "ca.uberifix.functionalaesthetics"
 archivesBaseName = "FunctionalAesthetics"
 
@@ -21,10 +21,10 @@ compileJava {
 }
 
 minecraft {
-    version = "1.10.2-12.18.3.2316"
+    version = "1.11.2-13.20.0.2228"
     runDir = "run"
 
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20161220"
 }
 
 repositories {
@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    deobfCompile "com.github.mcjty:compatlayer:1.10-0.2.9"
+    deobfCompile "com.github.mcjty:compatlayer:1.11.2-0.2.9"
 }
 
 processResources
