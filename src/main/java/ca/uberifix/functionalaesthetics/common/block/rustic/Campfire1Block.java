@@ -2,18 +2,19 @@ package ca.uberifix.functionalaesthetics.common.block.rustic;
 
 import ca.uberifix.functionalaesthetics.common.block.BlockVariants;
 import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
-import net.minecraft.block.BlockStone;
+import ca.uberifix.functionalaesthetics.common.tileentity.rustic.CampfireTileEntity;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -32,7 +33,7 @@ import java.util.Random;
 /**
  * Created by uberifix
  */
-public class Campfire1Block extends BlockRustic {
+public class Campfire1Block extends BlockRustic implements ITileEntityProvider{
     public static final PropertyEnum<BlockVariants.EnumWoodVariantOld> WOOD_VARIANT = PropertyEnum.create("wood_variant", BlockVariants.EnumWoodVariantOld.class);
     private static final AxisAlignedBB CAMPFIRE_AABB = new AxisAlignedBB(0.2D, 0.0D, 0.2D, 0.8D, 0.4D, 0.8D);
 
@@ -143,4 +144,6 @@ public class Campfire1Block extends BlockRustic {
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, WOOD_VARIANT);
     }
+
+    public TileEntity createNewTileEntity(World worldIn, int meta) { return new CampfireTileEntity(); }
 }
