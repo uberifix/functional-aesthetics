@@ -1,7 +1,7 @@
 package ca.uberifix.functionalaesthetics.common.block.rustic;
 
+import ca.uberifix.functionalaesthetics.FunctionalAesthetics;
 import ca.uberifix.functionalaesthetics.common.block.BlockCommon;
-import ca.uberifix.functionalaesthetics.common.tab.FunctionalAestheticsRusticTab;
 import net.minecraft.block.material.Material;
 
 
@@ -11,7 +11,7 @@ import net.minecraft.block.material.Material;
 public class BlockRustic extends BlockCommon {
     public BlockRustic(String name, Material material) {
         super(name, material);
-        setCreativeTab(FunctionalAestheticsRusticTab.INSTANCE);
+        setCreativeTab(FunctionalAesthetics.tabFunctionalAestheticsRustic);
     }
 
 }

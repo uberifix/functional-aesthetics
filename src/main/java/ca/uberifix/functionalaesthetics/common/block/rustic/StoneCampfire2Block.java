@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -92,10 +93,9 @@ public class StoneCampfire2Block extends BlockRustic implements ITileEntityProvi
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-        for (int i = 0; i <= 7; i++) {
-            list.add(new ItemStack(itemIn, 1, i));
-        }
+    @Override
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        for (int i = 0; i <= 7; i++) { subItems.add(new ItemStack(itemIn, 1,i)); }
     }
 
     public int damageDropped(IBlockState state) { return getMetaFromState(state); }

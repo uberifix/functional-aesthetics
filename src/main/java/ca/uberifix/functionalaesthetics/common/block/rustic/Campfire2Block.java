@@ -93,16 +93,17 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
     }
 
     public void convertToStoneCampfire(World worldIn, EntityPlayer playerIn, BlockPos pos, int meta) {
-        playerIn.getHeldItem(EnumHand.MAIN_HAND).stackSize -= 1;
+        ItemStackTools.incStackSize(playerIn.getHeldItem(EnumHand.MAIN_HAND), -1);
         if (!worldIn.isRemote) {
-            worldIn.setBlockState(pos, ModBlocks.stoneCampfire2Block.getStateFromMeta(meta));
+            worldIn.setBlockState(pos, ModBlocks.stoneCampfire1Block.getStateFromMeta(meta));
         }
     }
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
-    {
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+        ItemStack heldItem = playerIn.getHeldItem(EnumHand.MAIN_HAND);
         Item cobblestone = Item.getItemFromBlock(Blocks.COBBLESTONE);
         Item stone = Item.getItemFromBlock(Blocks.STONE);
-        if (ItemStackTools.isEmpty(heldItem)) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ); }
+        if (ItemStackTools.isEmpty(heldItem)) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ); }
         if (heldItem.getItem() == cobblestone) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4);
@@ -120,14 +121,13 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4 + 3);
             return true;
         }
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ);
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
     }
 
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-        for (int i = 0; i <= 1; i++) {
-            list.add(new ItemStack(itemIn, 1, i));
-        }
+    @Override
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        for (int i = 0; i <= 1; i++) { subItems.add(new ItemStack(itemIn, 1,i)); }
     }
 
     public int damageDropped(IBlockState state) {

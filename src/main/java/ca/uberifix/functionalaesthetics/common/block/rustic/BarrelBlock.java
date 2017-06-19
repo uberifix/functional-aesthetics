@@ -8,6 +8,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,11 +35,10 @@ public class BarrelBlock extends BlockRustic {
         return false;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-        for (int i = 0; i <= 5; i++) {
-            list.add(new ItemStack(itemIn, 1, i));
-        }
+    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        for (int i = 0; i <= 5; i++) { subItems.add(new ItemStack(itemIn, 1,i)); }
     }
 
     public int damageDropped(IBlockState state) { return state.getValue(VARIANT).getMetadata(); }

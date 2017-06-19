@@ -25,11 +25,12 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
             List<EntityItem> entities = getWorld().getEntitiesWithinAABB(EntityItem.class, COOK_RADIUS_AABB);
             for (EntityItem item : entities) {
                 ItemStack cookedItem = FurnaceRecipes.instance().getSmeltingResult(item.getEntityItem());
-                cookedItem.stackSize = item.getEntityItem().stackSize;
+                ItemStackTools.setStackSize(cookedItem, ItemStackTools.getStackSize(item.getEntityItem()));
                 if(!ItemStackTools.isEmpty(cookedItem)) {
                     if (cookedItem.getItem() instanceof ItemFood) {
-                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, cookedItem.copy()));
-                        item.setDead();
+                        //TODO: limit items cooked to 8, add 4 sec cook timer, add steam particle effects during cooking
+                        //TODO: after cooked, add smoke particles, after 2 sec, add fire particles, after 2 sec turn item to charcoal
+                        item.setEntityItemStack(cookedItem.copy());
                     }
                 }
             }
