@@ -1,4 +1,5 @@
 [
+[
 {
   "modid": "functionalaesthetics",
   "name": "Functional Aesthetics",
@@ -8,7 +9,6 @@
   "url": "mods.uberifix.ca",
   "updateUrl": "",
   "authorList": ["uberifix"],
-  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
