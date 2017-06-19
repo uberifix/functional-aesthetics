@@ -1,6 +1,7 @@
 package ca.uberifix.functionalaesthetics.common.tileentity.rustic;
 
 import ca.uberifix.functionalaesthetics.common.tileentity.TileEntityCommon;
+import mcjty.lib.tools.ItemStackTools;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,7 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
             for (EntityItem item : entities) {
                 ItemStack cookedItem = FurnaceRecipes.instance().getSmeltingResult(item.getEntityItem());
                 cookedItem.stackSize = item.getEntityItem().stackSize;
-                if(cookedItem != null) {
+                if(!ItemStackTools.isEmpty(cookedItem)) {
                     if (cookedItem.getItem() instanceof ItemFood) {
                         worldObj.spawnEntityInWorld(new EntityItem(worldObj, item.posX, item.posY, item.posZ, cookedItem.copy()));
                         item.setDead();

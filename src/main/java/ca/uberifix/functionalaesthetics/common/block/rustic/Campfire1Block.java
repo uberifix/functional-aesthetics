@@ -3,6 +3,7 @@ package ca.uberifix.functionalaesthetics.common.block.rustic;
 import ca.uberifix.functionalaesthetics.common.block.BlockVariants;
 import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
 import ca.uberifix.functionalaesthetics.common.tileentity.rustic.CampfireTileEntity;
+import mcjty.lib.tools.ItemStackTools;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -102,7 +103,7 @@ public class Campfire1Block extends BlockRustic implements ITileEntityProvider{
     {
         Item cobblestone = Item.getItemFromBlock(Blocks.COBBLESTONE);
         Item stone = Item.getItemFromBlock(Blocks.STONE);
-        if (heldItem == null) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ); }
+        if (ItemStackTools.isEmpty(heldItem)) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ); }
         if (heldItem.getItem() == cobblestone) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4);
@@ -133,15 +134,13 @@ public class Campfire1Block extends BlockRustic implements ITileEntityProvider{
     public int damageDropped(IBlockState state) { return getMetaFromState(state); }
 
     public IBlockState getStateFromMeta(int meta) {
-        int wood_bits = (meta);
-        BlockVariants.EnumWoodVariantOld wood = BlockVariants.EnumWoodVariantOld.byMetadata(wood_bits);
+        BlockVariants.EnumWoodVariantOld wood = BlockVariants.EnumWoodVariantOld.byMetadata(meta);
         return this.getDefaultState().withProperty(WOOD_VARIANT, wood);
     }
 
     public int getMetaFromState(IBlockState state) {
         BlockVariants.EnumWoodVariantOld wood = state.getValue(WOOD_VARIANT);
-        int wood_bits = wood.getMetadata();
-        return wood_bits;
+        return wood.getMetadata();
     }
 
     protected BlockStateContainer createBlockState() {
