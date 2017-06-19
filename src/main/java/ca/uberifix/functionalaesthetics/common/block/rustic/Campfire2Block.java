@@ -95,7 +95,7 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
     public void convertToStoneCampfire(World worldIn, EntityPlayer playerIn, BlockPos pos, int meta) {
         ItemStackTools.incStackSize(playerIn.getHeldItem(EnumHand.MAIN_HAND), -1);
         if (!worldIn.isRemote) {
-            worldIn.setBlockState(pos, ModBlocks.stoneCampfire1Block.getStateFromMeta(meta));
+            worldIn.setBlockState(pos, ModBlocks.stoneCampfire2Block.getStateFromMeta(meta));
         }
     }
     @Override
