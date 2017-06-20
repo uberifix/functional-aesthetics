@@ -5,6 +5,8 @@ import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
 import ca.uberifix.functionalaesthetics.common.item.block.ItemBlockCommon;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * Created by uberifix
@@ -13,6 +15,9 @@ public class StoneCampfire1ItemBlock extends ItemBlockCommon {
     public StoneCampfire1ItemBlock(Block block) {
         super(block, ModBlocks.stoneCampfire1Block.getRegistryName(), true);
         this.registerItemBlock();
+    }
+
+    public void initModels() {
         String[] WoodVariants = {"oak", "spruce", "birch", "jungle"};
         String[] StoneVariants = {"stone", "diorite", "andesite", "granite"};
         for(int i=0; i < WoodVariants.length; i++) {

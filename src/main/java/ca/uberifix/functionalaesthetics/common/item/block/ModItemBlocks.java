@@ -2,6 +2,8 @@ package ca.uberifix.functionalaesthetics.common.item.block;
 
 import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
 import ca.uberifix.functionalaesthetics.common.item.block.rustic.*;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import static ca.uberifix.functionalaesthetics.common.config.Config.RUSTIC_MODULE_ENABLED;
 
@@ -22,6 +24,17 @@ public class ModItemBlocks {
             campfire2ItemBlock = new Campfire2ItemBlock(ModBlocks.campfire2Block);
             stoneCampfire1ItemBlock = new StoneCampfire1ItemBlock(ModBlocks.stoneCampfire1Block);
             stoneCampfire2ItemBlock = new StoneCampfire2ItemBlock(ModBlocks.stoneCampfire2Block);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static void initClient() {
+        if(RUSTIC_MODULE_ENABLED) {
+            barrelItemBlock.initModels();
+            campfire1ItemBlock.initModels();
+            campfire2ItemBlock.initModels();
+            stoneCampfire1ItemBlock.initModels();
+            stoneCampfire2ItemBlock.initModels();
         }
     }
 }

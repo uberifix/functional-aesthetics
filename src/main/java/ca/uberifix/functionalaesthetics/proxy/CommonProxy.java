@@ -17,7 +17,6 @@ import java.io.File;
  */
 public class CommonProxy {
     public static Configuration config;
-
     public void preInit(FMLPreInitializationEvent event) {
         File directory = event.getModConfigurationDirectory();
         config = new Configuration(new File(directory.getPath(), "functionalaesthetics.cfg"));
