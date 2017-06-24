@@ -6,7 +6,7 @@ import net.minecraft.util.IStringSerializable;
  * Created by uberifix
  */
 public class BlockVariants {
-    public static enum EnumWoodVariantAll implements IStringSerializable {
+    public enum EnumWoodVariantAll implements IStringSerializable {
         OAK(0, "oak"),
         SPRUCE(1, "spruce"),
         BIRCH(2, "birch"),
@@ -19,9 +19,9 @@ public class BlockVariants {
         private final String name;
         private final String unlocalizedName;
 
-        private EnumWoodVariantAll(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
+        EnumWoodVariantAll(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
 
-        private EnumWoodVariantAll(int metaIn, String nameIn, String unlocalizedNameIn) {
+        EnumWoodVariantAll(int metaIn, String nameIn, String unlocalizedNameIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;
@@ -64,7 +64,7 @@ public class BlockVariants {
         }
     }
 
-    public static enum EnumWoodVariantOld implements IStringSerializable {
+    public enum EnumWoodVariantOld implements IStringSerializable {
         OAK(0, "oak"),
         SPRUCE(1, "spruce"),
         BIRCH(2, "birch"),
@@ -75,9 +75,9 @@ public class BlockVariants {
         private final String name;
         private final String unlocalizedName;
 
-        private EnumWoodVariantOld(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
+        EnumWoodVariantOld(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
 
-        private EnumWoodVariantOld(int metaIn, String nameIn, String unlocalizedNameIn) {
+        EnumWoodVariantOld(int metaIn, String nameIn, String unlocalizedNameIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;
@@ -120,7 +120,7 @@ public class BlockVariants {
         }
     }
 
-    public static enum EnumWoodVariantNew implements IStringSerializable {
+    public enum EnumWoodVariantNew implements IStringSerializable {
         ACACIA(0, "acacia"),
         DARK_OAK(1, "dark_oak");
 
@@ -129,9 +129,9 @@ public class BlockVariants {
         private final String name;
         private final String unlocalizedName;
 
-        private EnumWoodVariantNew(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
+        EnumWoodVariantNew(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
 
-        private EnumWoodVariantNew(int metaIn, String nameIn, String unlocalizedNameIn) {
+        EnumWoodVariantNew(int metaIn, String nameIn, String unlocalizedNameIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;
@@ -174,20 +174,20 @@ public class BlockVariants {
         }
     }
 
-    public static enum EnumStoneVariant implements IStringSerializable {
+    public enum EnumStoneVariant implements IStringSerializable {
         STONE(0, "stone"),
-        DIORITE(1, "diorite"),
-        ANDESITE(2, "andesite"),
-        GRANITE(3, "granite");
+        GRANITE(1, "granite"),
+        DIORITE(2, "diorite"),
+        ANDESITE(3, "andesite");
 
         private static final BlockVariants.EnumStoneVariant[] META_LOOKUP = new BlockVariants.EnumStoneVariant[values().length];
         private final int meta;
         private final String name;
         private final String unlocalizedName;
 
-        private EnumStoneVariant(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
+        EnumStoneVariant(int metaIn, String nameIn) { this(metaIn, nameIn, nameIn); }
 
-        private EnumStoneVariant(int metaIn, String nameIn, String unlocalizedNameIn) {
+        EnumStoneVariant(int metaIn, String nameIn, String unlocalizedNameIn) {
             this.meta = metaIn;
             this.name = nameIn;
             this.unlocalizedName = unlocalizedNameIn;

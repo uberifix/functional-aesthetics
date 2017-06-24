@@ -3,7 +3,7 @@ package ca.uberifix.functionalaesthetics.common.block.rustic;
 import ca.uberifix.functionalaesthetics.common.block.BlockVariants;
 import ca.uberifix.functionalaesthetics.common.block.ModBlocks;
 import ca.uberifix.functionalaesthetics.common.tileentity.rustic.CampfireTileEntity;
-import mcjty.lib.tools.ItemStackTools;
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -13,6 +13,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -40,15 +41,14 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
         super("campfire_2", Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(WOOD_VARIANT, BlockVariants.EnumWoodVariantNew.DARK_OAK));
         this.setLightLevel(1.0F);
+        this.setHardness(2.5F);
+        this.setHarvestLevel("axe", 0);
         translucent = true;
         this.registerBlock();
     }
 
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
-
+    public BlockRenderLayer getBlockLayer() { return BlockRenderLayer.CUTOUT; }
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return CAMPFIRE_AABB;
     }
@@ -57,15 +57,40 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
     public boolean isFullCube(IBlockState state) {
         return false;
     }
-
     @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
-
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
         return 15;
+    }
+
+    @Override
+    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        entityIn.setFire(10);
+    }
+
+    public boolean hasGround(World worldIn, BlockPos pos, IBlockState state) {
+        if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP)) {
+            this.dropBlockAsItem(worldIn, pos, state, 0);
+            worldIn.setBlockToAir(pos);
+            return false;
+        } else { return true; }
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        this.hasGround(worldIn, pos, state);
+    }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess worldIn, BlockPos pos, IBlockState state, int fortune) {
+        int meta = worldIn.getBlockState(pos).getBlock().getMetaFromState(worldIn.getBlockState(pos)) & 0x03;
+        ArrayList<ItemStack> drops = new ArrayList<>();
+        if (RANDOM.nextFloat() < 0.25F) { drops.add(new ItemStack(Items.COAL, 1, 1)); }
+        if (RANDOM.nextFloat() < 0.5F) { drops.add(new ItemStack(Blocks.PLANKS, RANDOM.nextInt(2) + 1, meta + 4)); }
+        return drops;
     }
 
     @SideOnly(Side.CLIENT)
@@ -87,47 +112,36 @@ public class Campfire2Block extends BlockRustic implements ITileEntityProvider {
         }
     }
 
-    @Override
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-        entityIn.setFire(10);
-    }
-
     public void convertToStoneCampfire(World worldIn, EntityPlayer playerIn, BlockPos pos, int meta) {
-        ItemStackTools.incStackSize(playerIn.getHeldItem(EnumHand.MAIN_HAND), -1);
+        playerIn.getHeldItem(EnumHand.MAIN_HAND).shrink(1);
         if (!worldIn.isRemote) {
             worldIn.setBlockState(pos, ModBlocks.stoneCampfire2Block.getStateFromMeta(meta));
         }
     }
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-        ItemStack heldItem = playerIn.getHeldItem(EnumHand.MAIN_HAND);
+        ItemStack heldItem = playerIn.getHeldItem(hand);
         Item cobblestone = Item.getItemFromBlock(Blocks.COBBLESTONE);
         Item stone = Item.getItemFromBlock(Blocks.STONE);
-        if (ItemStackTools.isEmpty(heldItem)) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ); }
+        if (heldItem.isEmpty()) { return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ); }
         if (heldItem.getItem() == cobblestone) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4);
             return true;
-        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 3) {
+        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 1) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4 + 1);
             return true;
-        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 5) {
+        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 3) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4 + 2);
             return true;
-        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 1) {
+        } else if (heldItem.getItem() == stone && heldItem.getMetadata() == 5) {
             int meta = getMetaFromState(worldIn.getBlockState(pos));
             convertToStoneCampfire(worldIn, playerIn, pos, meta * 4 + 3);
             return true;
         }
         return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for (int i = 0; i <= 1; i++) { subItems.add(new ItemStack(itemIn, 1,i)); }
     }
 
     public int damageDropped(IBlockState state) {

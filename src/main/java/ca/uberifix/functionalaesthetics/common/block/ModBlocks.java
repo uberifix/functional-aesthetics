@@ -8,7 +8,7 @@ import static ca.uberifix.functionalaesthetics.common.config.Config.RUSTIC_MODUL
  * Created by uberifix
  */
 public class ModBlocks {
-    public static BarrelBlock barrelBlock;
+    //public static BarrelBlock barrelBlock;
     public static Campfire1Block campfire1Block;
     public static Campfire2Block campfire2Block;
     public static StoneCampfire1Block stoneCampfire1Block;
@@ -16,7 +16,7 @@ public class ModBlocks {
 
     public static void init() {
         if(RUSTIC_MODULE_ENABLED) {
-            barrelBlock = new BarrelBlock();
+            //barrelBlock = new BarrelBlock();
             campfire1Block = new Campfire1Block();
             campfire2Block = new Campfire2Block();
             stoneCampfire1Block = new StoneCampfire1Block();

@@ -4,7 +4,6 @@ import ca.uberifix.functionalaesthetics.FunctionalAesthetics;
 import ca.uberifix.functionalaesthetics.common.tileentity.TileEntityCommon;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import mcjty.lib.tools.ItemStackTools;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -45,7 +44,7 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
                 EntityItem itemCooking = cell.getColumnKey();
                 Integer itemTimer = cell.getValue();
                 double itemX = itemCooking.posX, itemY = itemCooking.posY, itemZ = itemCooking.posZ;
-                ItemStack itemCooked = FurnaceRecipes.instance().getSmeltingResult(itemCooking.getEntityItem());
+                ItemStack itemCooked = FurnaceRecipes.instance().getSmeltingResult(itemCooking.getItem());
                 if (!itemCooking.isEntityAlive()) { currentlyCooking--; this.removeCooking.put(itemUUID, itemCooking); }
                 if (itemsNearby.contains(itemCooking)) {
                     this.itemsCooking.put(itemUUID, itemCooking, itemTimer - 1);
@@ -53,7 +52,7 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
                         ((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, true, itemX, itemY + 0.5, itemZ, 1, 0, 0, 0, 0.01f, new int[0]);
                     }
                     if (itemTimer <= 0) {
-                        itemCooking.setEntityItemStack(itemCooked.copy());
+                        itemCooking.setItem(itemCooked.copy());
                         itemCooking.setNoPickupDelay();
                         ((WorldServer) getWorld()).spawnParticle(EnumParticleTypes.END_ROD, true, itemX, itemY + 0.5, itemZ, 5, 0, 0, 0, 0.01f, new int[0]);
                         currentlyCooking--;
@@ -91,11 +90,11 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
             for (EntityItem itemNearby : itemsNearby) {
                 double itemX = itemNearby.posX, itemY = itemNearby.posY, itemZ = itemNearby.posZ;
                 UUID itemUUID = itemNearby.getPersistentID();
-                ItemStack itemNearbyCooked = FurnaceRecipes.instance().getSmeltingResult(itemNearby.getEntityItem());
+                ItemStack itemNearbyCooked = FurnaceRecipes.instance().getSmeltingResult(itemNearby.getItem());
                 boolean itemNearbyIsFood = itemNearbyCooked.getItem() instanceof ItemFood;
-                if (!ItemStackTools.isEmpty(itemNearbyCooked)) {
+                if (!itemNearbyCooked.isEmpty()) {
                     if (itemNearbyIsFood && currentlyCooking < RUSTIC_CAMPFIRE_COOK_AMOUNT && !this.itemsCooking.containsRow(itemUUID)) {
-                        EntityItem newItem = new EntityItem(getWorld(), itemX, itemY, itemZ, itemNearby.getEntityItem().splitStack(1));
+                        EntityItem newItem = new EntityItem(getWorld(), itemX, itemY, itemZ, itemNearby.getItem().splitStack(1));
                         newItem.setInfinitePickupDelay();
                         newItem.setVelocity(0, 0, 0);
                         getWorld().spawnEntity(newItem);

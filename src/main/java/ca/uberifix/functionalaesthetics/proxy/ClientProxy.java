@@ -1,5 +1,6 @@
 package ca.uberifix.functionalaesthetics.proxy;
 
+import ca.uberifix.functionalaesthetics.common.item.ModItems;
 import ca.uberifix.functionalaesthetics.common.item.block.ModItemBlocks;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -11,6 +12,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
 
+        ModItems.initClient();
         ModItemBlocks.initClient();
     }
 }

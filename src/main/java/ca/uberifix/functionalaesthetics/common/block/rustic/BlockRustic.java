@@ -10,8 +10,6 @@ import net.minecraft.block.material.Material;
  */
 public class BlockRustic extends BlockCommon {
     public BlockRustic(String name, Material material) {
-        super(name, material);
-        setCreativeTab(FunctionalAesthetics.tabFunctionalAestheticsRustic);
+        super(name, material, FunctionalAesthetics.tabFunctionalAestheticsRustic);
     }
-
 }

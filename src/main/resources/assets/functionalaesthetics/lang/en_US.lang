@@ -3,13 +3,15 @@
 itemGroup.tab_functional_aesthetics_rustic=Functional Aesthetics - Rustic
 
 ##  Rustic Module
+# Items
+item.functionalaesthetics.bow_drill.name=Bow Drill
 # Barrels
-tile.functionalaesthetics.barrel.oak.name=Wooden Oak Barrel
-tile.functionalaesthetics.barrel.spruce.name=Wooden Spruce Barrel
-tile.functionalaesthetics.barrel.birch.name=Wooden Birch Barrel
-tile.functionalaesthetics.barrel.jungle.name=Wooden Jungle Barrel
-tile.functionalaesthetics.barrel.acacia.name=Wooden Acacia Barrel
-tile.functionalaesthetics.barrel.dark_oak.name=Wooden Dark Oak Barrel
+tile.functionalaesthetics.barrel_oak.name=Wooden Oak Barrel
+tile.functionalaesthetics.barrel_spruce.name=Wooden Spruce Barrel
+tile.functionalaesthetics.barrel_birch.name=Wooden Birch Barrel
+tile.functionalaesthetics.barrel_jungle.name=Wooden Jungle Barrel
+tile.functionalaesthetics.barrel_acacia.name=Wooden Acacia Barrel
+tile.functionalaesthetics.barrel_dark_oak.name=Wooden Dark Oak Barrel
 # Wood Campfires
 tile.functionalaesthetics.campfire_1_oak.name=Oak Wood Campfire
 tile.functionalaesthetics.campfire_1_spruce.name=Spruce Wood Campfire
@@ -24,6 +26,13 @@ tile.functionalaesthetics.campfire_pit_1_stone_birch.name=Birch Campfire in Ston
 tile.functionalaesthetics.campfire_pit_1_stone_jungle.name=Jungle Campfire in Stone Pit
 tile.functionalaesthetics.campfire_pit_2_stone_acacia.name=Acacia Campfire in Stone Pit
 tile.functionalaesthetics.campfire_pit_2_stone_dark_oak.name=Dark Oak Campfire in Stone Pit
+#Granite Campfires
+tile.functionalaesthetics.campfire_pit_1_granite_oak.name=Oak Campfire in Granite Pit
+tile.functionalaesthetics.campfire_pit_1_granite_spruce.name=Spruce Campfire in Granite Pit
+tile.functionalaesthetics.campfire_pit_1_granite_birch.name=Birch Campfire in Granite Pit
+tile.functionalaesthetics.campfire_pit_1_granite_jungle.name=Jungle Campfire in Granite Pit
+tile.functionalaesthetics.campfire_pit_2_granite_acacia.name=Acacia Campfire in Granite Pit
+tile.functionalaesthetics.campfire_pit_2_granite_dark_oak.name=Dark Oak Campfire in Granite Pit
 #Diorite Campfires
 tile.functionalaesthetics.campfire_pit_1_diorite_oak.name=Oak Campfire in Diorite Pit
 tile.functionalaesthetics.campfire_pit_1_diorite_spruce.name=Spruce Campfire in Diorite Pit
@@ -38,10 +47,3 @@ tile.functionalaesthetics.campfire_pit_1_andesite_birch.name=Birch Campfire in A
 tile.functionalaesthetics.campfire_pit_1_andesite_jungle.name=Jungle Campfire in Andesite Pit
 tile.functionalaesthetics.campfire_pit_2_andesite_acacia.name=Acacia Campfire in Andesite Pit
 tile.functionalaesthetics.campfire_pit_2_andesite_dark_oak.name=Dark Oak Campfire in Andesite Pit
-#Granite Campfires
-tile.functionalaesthetics.campfire_pit_1_granite_oak.name=Oak Campfire in Granite Pit
-tile.functionalaesthetics.campfire_pit_1_granite_spruce.name=Spruce Campfire in Granite Pit
-tile.functionalaesthetics.campfire_pit_1_granite_birch.name=Birch Campfire in Granite Pit
-tile.functionalaesthetics.campfire_pit_1_granite_jungle.name=Jungle Campfire in Granite Pit
-tile.functionalaesthetics.campfire_pit_2_granite_acacia.name=Acacia Campfire in Granite Pit
-tile.functionalaesthetics.campfire_pit_2_granite_dark_oak.name=Dark Oak Campfire in Granite Pit

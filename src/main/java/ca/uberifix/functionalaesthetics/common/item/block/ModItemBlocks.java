@@ -11,7 +11,7 @@ import static ca.uberifix.functionalaesthetics.common.config.Config.RUSTIC_MODUL
  * Created by uberifix
  */
 public class ModItemBlocks {
-    public static BarrelItemBlock barrelItemBlock;
+    //public static BarrelItemBlock barrelItemBlock;
     public static Campfire1ItemBlock campfire1ItemBlock;
     public static Campfire2ItemBlock campfire2ItemBlock;
     public static StoneCampfire1ItemBlock stoneCampfire1ItemBlock;
@@ -19,7 +19,7 @@ public class ModItemBlocks {
 
     public static void init() {
         if(RUSTIC_MODULE_ENABLED) {
-            barrelItemBlock = new BarrelItemBlock(ModBlocks.barrelBlock);
+            //barrelItemBlock = new BarrelItemBlock(ModBlocks.barrelBlock);
             campfire1ItemBlock = new Campfire1ItemBlock(ModBlocks.campfire1Block);
             campfire2ItemBlock = new Campfire2ItemBlock(ModBlocks.campfire2Block);
             stoneCampfire1ItemBlock = new StoneCampfire1ItemBlock(ModBlocks.stoneCampfire1Block);
@@ -30,7 +30,7 @@ public class ModItemBlocks {
     @SideOnly(Side.CLIENT)
     public static void initClient() {
         if(RUSTIC_MODULE_ENABLED) {
-            barrelItemBlock.initModels();
+            //barrelItemBlock.initModels();
             campfire1ItemBlock.initModels();
             campfire2ItemBlock.initModels();
             stoneCampfire1ItemBlock.initModels();

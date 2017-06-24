@@ -206,7 +206,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 5, 0, 0 ],
-			"to": [ 11, 2, 2 ],
+			"to": [ 11, 2.002, 2 ],
 			"faces": {
 				"down": { "uv": [ 5, 14, 11, 16 ], "texture": "#cobble" },
 				"up": { "uv": [ 5, 0, 11, 2 ], "texture": "#cobble" },
@@ -219,7 +219,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 14, 0, 5 ],
-			"to": [ 16, 2, 11 ],
+			"to": [ 16, 2.002, 11 ],
 			"faces": {
 				"down": { "uv": [ 14, 5, 16, 11 ], "texture": "#cobble" },
 				"up": { "uv": [ 14, 5, 16, 11 ], "texture": "#cobble" },
@@ -232,7 +232,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 5, 0, 14 ],
-			"to": [ 11, 2, 16 ],
+			"to": [ 11, 2.002, 16 ],
 			"faces": {
 				"down": { "uv": [ 5, 0, 11, 2 ], "texture": "#cobble" },
 				"up": { "uv": [ 5, 14, 11, 16 ], "texture": "#cobble" },
@@ -245,7 +245,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 0, 0, 5 ],
-			"to": [ 2, 2, 11 ],
+			"to": [ 2, 2.002, 11 ],
 			"faces": {
 				"down": { "uv": [ 0, 5, 2, 11 ], "texture": "#cobble" },
 				"up": { "uv": [ 0, 5, 2, 11 ], "texture": "#cobble" },
@@ -258,7 +258,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 14, 0, 11 ],
-			"to": [ 16, 2, 13.5 ],
+			"to": [ 16, 2.001, 13.5 ],
 			"rotation": { "origin": [ 14, 0, 11 ], "axis": "y", "angle": -22.5 },
 			"faces": {
 				"down": { "uv": [ 14, 2.5, 16, 5 ], "texture": "#cobble" },
@@ -286,7 +286,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 0.125, 0, 11.625 ],
-			"to": [ 2.125, 2, 14.125 ],
+			"to": [ 2.125, 2.001, 14.125 ],
 			"rotation": { "origin": [ 0.125, 0, 11.625 ], "axis": "y", "angle": 22.5 },
 			"faces": {
 				"down": { "uv": [ 14, 2.5, 16, 5 ], "texture": "#cobble" },
@@ -314,7 +314,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 2, 0, 1 ],
-			"to": [ 4.5, 2, 3 ],
+			"to": [ 4.5, 2.001, 3 ],
 			"rotation": { "origin": [ 2, 0, 1 ], "axis": "y", "angle": 22.5 },
 			"faces": {
 				"down": { "uv": [ 11, 0, 13.5, 2 ], "texture": "#cobble" },
@@ -342,7 +342,7 @@
 		{
 			"__comment": "Cube18",
 			"from": [ 11.75, 0, 0.125 ],
-			"to": [ 14.25, 2, 2.125 ],
+			"to": [ 14.25, 2.001, 2.125 ],
 			"rotation": { "origin": [ 11.75, 0, 0.125 ], "axis": "y", "angle": -22.5 },
 			"faces": {
 				"down": { "uv": [ 11, 0, 13.5, 2 ], "texture": "#cobble" },
@@ -397,7 +397,7 @@
 		},
 		"ground": {
 			"translation":  [ 0, 8, 0 ],
-			"scale":  [ 0.8, 0.8, 0.8 ]
+			"scale":  [ 0.6, 0.6, 0.6 ]
 		}
 	}
 }

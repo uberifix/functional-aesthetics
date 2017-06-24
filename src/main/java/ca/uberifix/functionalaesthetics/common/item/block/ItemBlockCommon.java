@@ -30,6 +30,6 @@ public class ItemBlockCommon extends ItemBlock {
 
     @SideOnly(Side.CLIENT)
     public void initModelVariant(int meta , String variant) {
-        ModelLoader.setCustomModelResourceLocation(this, meta,new ModelResourceLocation(getRegistryName(), variant));
+        ModelLoader.setCustomModelResourceLocation(this, meta,new ModelResourceLocation(this.getRegistryName(), variant));
     }
 }

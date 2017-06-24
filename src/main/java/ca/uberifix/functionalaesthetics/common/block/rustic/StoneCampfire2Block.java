@@ -2,6 +2,7 @@ package ca.uberifix.functionalaesthetics.common.block.rustic;
 
 import ca.uberifix.functionalaesthetics.common.block.BlockVariants;
 import ca.uberifix.functionalaesthetics.common.tileentity.rustic.CampfireTileEntity;
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -9,14 +10,13 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -39,6 +40,8 @@ public class StoneCampfire2Block extends BlockRustic implements ITileEntityProvi
         super("campfire_pit_2", Material.WOOD);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STONE_VARIANT, BlockVariants.EnumStoneVariant.STONE).withProperty(WOOD_VARIANT, BlockVariants.EnumWoodVariantNew.DARK_OAK));
         this.setLightLevel(1.0F);
+        this.setHardness(3.0F);
+        this.setHarvestLevel("axe", 0);
         translucent = true;
         this.registerBlock();
     }
@@ -61,11 +64,35 @@ public class StoneCampfire2Block extends BlockRustic implements ITileEntityProvi
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
-
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
     {
         return 15;
+    }
+
+    public boolean hasGround(World worldIn, BlockPos pos, IBlockState state) {
+        if (!worldIn.getBlockState(pos.down()).isSideSolid(worldIn, pos.down(), EnumFacing.UP)) {
+            this.dropBlockAsItem(worldIn, pos, state, 0);
+            worldIn.setBlockToAir(pos);
+            return false;
+        } else { return true; }
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        this.hasGround(worldIn, pos, state);
+    }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess worldIn, BlockPos pos, IBlockState state, int fortune) {
+        int woodmeta = worldIn.getBlockState(pos).getBlock().getMetaFromState(worldIn.getBlockState(pos)) & 0x0c;
+        int stonemeta = worldIn.getBlockState(pos).getBlock().getMetaFromState(worldIn.getBlockState(pos)) & 0x03;
+        ArrayList<ItemStack> drops = new ArrayList<>();
+        if (RANDOM.nextFloat() < 0.25F) { drops.add(new ItemStack(Items.COAL, 1, 1)); }
+        if (RANDOM.nextFloat() < 0.5F) { drops.add(new ItemStack(Blocks.PLANKS, RANDOM.nextInt(2) + 1, (woodmeta >> 2 ) + 4)); }
+        if (stonemeta == 0) { drops.add(new ItemStack(Blocks.COBBLESTONE, 1, stonemeta)); }
+        else { drops.add(new ItemStack(Blocks.STONE, 1, (stonemeta * 2) - 1)); }
+        return drops;
     }
 
     @SideOnly(Side.CLIENT)
@@ -90,12 +117,6 @@ public class StoneCampfire2Block extends BlockRustic implements ITileEntityProvi
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         entityIn.setFire(10);
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void getSubBlocks(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
-        for (int i = 0; i <= 7; i++) { subItems.add(new ItemStack(itemIn, 1,i)); }
     }
 
     public int damageDropped(IBlockState state) { return getMetaFromState(state); }

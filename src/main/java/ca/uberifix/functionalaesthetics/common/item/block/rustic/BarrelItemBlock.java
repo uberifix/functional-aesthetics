@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * Created by uberifix
  */
-public class BarrelItemBlock extends ItemBlockCommon{
-    public BarrelItemBlock(Block block) {
+public class BarrelItemBlock /*extends ItemBlockCommon*/{
+    /*public BarrelItemBlock(Block block) {
         super(block, ModBlocks.barrelBlock.getRegistryName(), true);
         this.registerItemBlock();
     }
@@ -27,6 +27,6 @@ public class BarrelItemBlock extends ItemBlockCommon{
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         BlockVariants.EnumWoodVariantAll variant = BlockVariants.EnumWoodVariantAll.byMetadata(stack.getMetadata());
-        return super.getUnlocalizedName() + "." + variant.toString();
-    }
+        return super.getUnlocalizedName() + "_" + variant.toString();
+    }*/
 }

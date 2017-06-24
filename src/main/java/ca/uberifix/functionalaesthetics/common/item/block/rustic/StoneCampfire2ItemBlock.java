@@ -19,7 +19,7 @@ public class StoneCampfire2ItemBlock extends ItemBlockCommon {
 
     public void initModels() {
         String[] WoodVariants = {"acacia", "dark_oak"};
-        String[] StoneVariants = {"stone", "diorite", "andesite", "granite"};
+        String[] StoneVariants = {"stone", "granite", "diorite", "andesite"};
         for(int i=0; i < WoodVariants.length; i++) {
             for(int j=0; j < StoneVariants.length; j++) {
                 this.initModelVariant(i*4+j, "stone_variant="+StoneVariants[j]+",wood_variant="+WoodVariants[i]);
