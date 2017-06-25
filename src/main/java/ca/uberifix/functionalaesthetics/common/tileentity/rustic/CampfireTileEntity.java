@@ -96,7 +96,8 @@ public class CampfireTileEntity extends TileEntityCommon implements ITickable{
                     if (itemNearbyIsFood && currentlyCooking < RUSTIC_CAMPFIRE_COOK_AMOUNT && !this.itemsCooking.containsRow(itemUUID)) {
                         EntityItem newItem = new EntityItem(getWorld(), itemX, itemY, itemZ, itemNearby.getItem().splitStack(1));
                         newItem.setInfinitePickupDelay();
-                        newItem.setVelocity(0, 0, 0);
+                        double motX = newItem.motionX, motY = newItem.motionY, motZ = newItem.motionZ;
+                        newItem.addVelocity(-motX/2, -motY, -motZ/2);
                         getWorld().spawnEntity(newItem);
                         this.itemsCooking.put(newItem.getPersistentID(), newItem, RUSTIC_CAMPFIRE_COOK_TIME);
                         currentlyCooking++;
