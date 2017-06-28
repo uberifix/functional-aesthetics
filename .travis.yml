@@ -1,7 +1,16 @@
 language: java
-jdk:
-  - oraclejdk8
-install:
-- ./gradlew build --stacktrace
-before_install:
- - chmod +x gradlew
+jdk: oraclejdk8
+
+before_install: chmod +x gradlew
+install: ./gradlew build --stacktrace
+
+deploy:
+  provider: releases
+  api_key:
+    secure: HmQZ00pEH0aHZnVIbbDdxZLXinpGHuX7lzlTOKajnEJUqjYW5XbZudoDlgQsIlDEIv6YoUZJ1BAug0BWtRgMqkBK7mz9+AUx0hJ48MLyZEYNNcAbNEsJIb5rBZ3CWlCqNdfEL6iCxepSFbCZll2B/L2FGJlZuc5lJiLMHsEI8vEWS0E9eZ4HcqQW7BEXWRnMHXNNHgpgGCx1j++AX5pkRnPNRuDtEYC+Cq3ksMplBZXCff4qqYgKDWIRj5x/3dbmYD4TY1wwycuqwqN8+I/gPB3H0VqMrd1KPbc1cNUXOD0C3llyxx2QNJ6G14fKxNDXxlWjNFl9ltATsCBnkvESDEHWvbjHQYIEXr8Bh03FpKKXT4V0L0Kx2kgyjL6/gxO7VTOHO3N2VFleqA3Mn9wPzVtZtJakkVAUJ9/BTkbNlu0Z/Lo7AtWeSMtabKNu8G23FDVMuQHGQBepBzi2LUC63zEEzcGG9ogcQTdYt+WsTEwwSb7xD6wAkeZJoWsFHbyrSk4nDIXABdjt/A2FhCfsKy52hH+bhMMi6yK5rsRx28/HrPa5wgrYmOiCamBdcc/yjosL4rKO060rYs+iKZaN1oMZ9m9iXHFOcEfmT4GnMvBT5m3BZ/AQaIJlCnGd0tjlXjd3ndfdF9X0HfsRh8paOi/+spK8ogfvYzkZljgDOtY=
+  file_glob: true
+  file: "build/libs/FunctionalAesthetics*.jar"
+  on:
+    repo: uberifix/functional-aesthetics
+    branch: 1.11.2-beta
+    tags: true
