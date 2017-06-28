@@ -1,0 +1,7 @@
+language: java
+jdk:
+  - oraclejdk8
+install:
+- ./gradlew build --stacktrace
+before_install:
+ - chmod +x gradlew
